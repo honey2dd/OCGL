@@ -1,45 +1,82 @@
-#include <iostream>
+/*Write a C++ program create a calculator for an arithmetic operator (+, -, *, /). The program should take two operands from user and performs the operation on those two operands depending upon the operator entered by user. Use a switch statement to select the operation. Finally, display the result. Some sample interaction with the program might look like this:
+Enter first number, operator, second number: 10 / 3
+Answer = 3.333333
+Do another (y/n)? y
+Enter first number, operator, second number: 12 + 100
+Answer = 112
+Do another (y/n)? n
+*/
+#include<iostream> 
+using namespace std; 
+class Calculator 
+{ 
+   private: 
+	   float num1,num2,result; 
+	   char op; 
+   public: 
+	   void get(); 
+	   void calculate(); 
+}; 
+void Calculator::get() 
+{ 
+   cout<<"\nEnter first number, operator, second number:\n"; 
+   cin>>num1; 
+   cin>>op; 
+   cin>>num2; 
+} 
+void Calculator::calculate() 
+{ 
 
-int main()
-{
-    float a, b;
-    char opr, ans;
-    do
-    {
-        std::cout << "Enter first number :" << std::endl;
-        std::cin >> a;
-        std::cout << "Enter second number :" << std::endl;
-        std::cin >> b;
-        std::cout << "Enter operator choice:\n+ for addition\n- for subtraction\n* for multiplication\n/ for division\n% for modulus (float values will be rounded of to int)" << std::endl;
-        std::cin >> opr;
-        switch (opr)
-        {
-        case '+':
-            std::cout << a << '+' << b << '=' << a+b << std::endl;
-            break;
+   switch(op) 
+   { 
+      case '+': 
+       		result=num1+num2; 
+                  cout<<" Answer = "<<result; 
 
-        case '-':
-            std::cout << a << '-' << b << '=' << a-b << std::endl;
-            break;
-        
-        case '*':
-            std::cout << a << '*' << b << '=' << a*b << std::endl;
-            break;
+      		break;   
+      case '-': 
+		     result=num1-num2; 
+                  cout<<" Answer = "<<result; 
 
-        case '/':
-            std::cout << a << '/' << b << '=' << a/b << std::endl;
-            break;
+		break;   
+      case '*': 
+      		 result=num1*num2; 
+                  cout<<" Answer = "<<result; 
 
-        case '%':
-            std::cout << a << '%' << b << '=' << int(a)%int(b) << std::endl;
-            break;
-        
-        default:
-            std::cout << "Please enter correct operator!" << std::endl;
-            break;
-        }
-        std::cout << "Do you want to continue (Y/N):" << std::endl;
-        std::cin >> ans;
-    } while (ans == 'Y' || ans == 'y'); 
-    
-}
+     		 break;   
+      case '/': 
+      		if(num2==0) 
+      		cout<<"\n Error. Not valid."; 
+      		 result=num1/num2; 
+                  cout<<" Answer = "<<result; 
+
+      break; 
+   } 
+   
+} 
+int main() 
+{ 
+   char ag; 
+   Calculator obj; 
+   x:obj.get(); 
+   obj.calculate(); 
+   cout<<"\n Do another (y/n)? "; 
+   cin>>ag; 
+   if(ag=='y'||ag=='Y') 
+   goto x; 
+   return 0; 
+}   
+
+/*OUTPUT:
+student@student-OptiPlex-3010:~$ g++ groupa5.cpp
+student@student-OptiPlex-3010:~$ ./a.out
+
+Enter first number, operator, second number:
+10/3
+ Answer = 3.33333
+ Do another (y/n)? y
+
+Enter first number, operator, second number:
+12+100
+ Answer = 112
+ Do another (y/n)? n*/
