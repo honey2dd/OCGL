@@ -68,8 +68,7 @@ int main()
 }   
 
 /*OUTPUT:
-student@student-OptiPlex-3010:~$ g++ groupa5.cpp
-student@student-OptiPlex-3010:~$ ./a.out
+
 
 Enter first number, operator, second number:
 10/3
