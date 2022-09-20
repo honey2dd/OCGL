@@ -7,32 +7,75 @@ functions, friend class, this pointer, inline code and dynamic memory allocation
 operators-new and delete */
 
 #include <iostream>
+
 class student
 {
     public:
-    char Name[20], Class[2], div[1], dob[10], bgr[2], addr[140];
+    char Name[25], Class[5], div[5], dob[15], bgr[5], addr[150];
     unsigned int Rollno, Telno;
-    void getdata()
+    student()
     {
+        std::cout << "------------------------------------"<< std::endl;
         std::cout << "Enter Name: ";
-        std::cin.getline(Name, 20);
+        (std::cin >> std::ws).getline(Name, 25);
         std::cout << "Enter Class: ";
-        std::cin.getline(Class, 2);
+        (std::cin >> std::ws).getline(Class, 5);
         std::cout << "Enter Division: ";
-        std::cin.getline(div, 1);
+        (std::cin >> std::ws).getline(div, 5);
         std::cout << "Enter Date of Birth: ";
-        std::cin.getline(dob, 10);
+        (std::cin >> std::ws).getline(dob, 15);
         std::cout << "Enter Blood Group: ";
-        std::cin.getline(bgr, 2);
+        (std::cin >> std::ws).getline(bgr, 5);
         std::cout << "Enter Contact Address: ";
-        std::cin.getline(addr, 140);
+        (std::cin >> std::ws).getline(addr, 150);
+        //The std::ws is a manipulator, that will skip all the leading whitespaces
+        //This is done because the getline() method of the std::cin stream object takes the input
+        //until a \n character is used.
+        //So, if a \n character is already stored in the buffer, the getline() may skip the input entirely.
         std::cout << "Enter Roll No.: ";
         std::cin >> Rollno;
         std::cout << "Enter Telephone number: ";
         std::cin >> Telno;
+        std::cout << "------------------------------------"<< std::endl;
     }
-    void setdata()
+/* 
+//If you want to use the string header, first
+#include <string> 
+class student
+{
+    public:
+    std::string Name, Class, div, dob, bgr, addr;
+    unsigned int Rollno, Telno;
+    student()
     {
+        std::cout << "Enter details of student " << ;
+        std::cout << "------------------------------------"<< std::endl;
+        std::cout << "Enter Name: ";
+        std::getline(std::cin >> std::ws, Name);
+        std::cout << "Enter Class: ";
+        std::getline(std::cin >> std::ws, Name);
+        std::cout << "Enter Division: ";
+        std::getline(std::cin >> std::ws, Name);
+        std::cout << "Enter Date of Birth: ";
+        std::getline(std::cin >> std::ws, Name);
+        std::cout << "Enter Blood Group: ";
+        std::getline(std::cin >> std::ws, Name);
+        std::cout << "Enter Contact Address: ";
+        std::getline(std::cin >> std::ws, Name);
+        //Note: Here, we have used the std::getline() function which is actually
+        //a part of the string header which we have included.
+        //The std::ws has the same application here as above.
+        std::cout << "Enter Roll No.: ";
+        std::cin >> Rollno;
+        std::cout << "Enter Telephone number: ";
+        std::cin >> Telno;
+        std::cout << "------------------------------------"<< std::endl;
+
+    }
+ */
+    void display()
+    {
+        std::cout << "------------------------------------"<< std::endl;
         std::cout << "Name: " << Name << std::endl;
         std::cout << "Class: " << Class << std::endl;
         std::cout << "Division: " << div << std::endl;
@@ -41,6 +84,7 @@ class student
         std::cout << "Contact Address: " << addr << std::endl;
         std::cout << "Roll Number: " << Rollno << std::endl;
         std::cout << "Telephone Number " << Telno << std::endl;
+        std::cout << "------------------------------------"<< std::endl;
     }
 };
 
@@ -50,19 +94,11 @@ int main()
     std::cout << "Enter strength of class: ";
     std::cin >> n;
     student obj[n];
-    std::cout << "------------------------------------"<< std::endl;
-    for (int i=0; i<n; i++)
-    {
-        std::cout << "Enter details of student " << i+1 << ":" << std::endl;
-        obj[i].getdata();
-        std::cout << "------------------------------------"<< std::endl;
-    }
-    std::cout << "------------------------------------"<< std::endl;
+    std::cout << '\n';
     for (int i=0; i<n; i++)
     {
         std::cout << "Student " << i+1 << ":" << std::endl;
-        obj[i].setdata();
-        std::cout << "------------------------------------"<< std::endl;
+        obj[i].display();
     }
     return 0;
 }
