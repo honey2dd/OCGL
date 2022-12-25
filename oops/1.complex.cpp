@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 class complex
 {
     private:
@@ -25,20 +25,20 @@ class complex
         return mult;
     }
 
-    friend std::ostream &operator <<(std::ostream &out, const complex &c);
-    friend std::istream &operator >>(std::istream &in, complex &c);
+    friend ostream &operator <<(ostream &out, const complex &c);
+    friend istream &operator >>(istream &in, complex &c);
 };
 
-std::istream &operator >> (std::istream &in, complex &c)
+istream &operator >> (istream &in, complex &c)
 {
-    std::cout << "Enter real part: ";
+    cout << "Enter real part: ";
     in >> c.r;
-    std::cout << "Enter imaginary part: ";
+    cout << "Enter imaginary part: ";
     in >> c.i;
     return in;
 }
 
-std::ostream &operator << (std::ostream &out, const complex &c)
+ostream &operator << (ostream &out, const complex &c)
 {
     out << c.r << "+" << c.i << "i";
     return out;
@@ -47,13 +47,13 @@ std::ostream &operator << (std::ostream &out, const complex &c)
 int main()
 {
     complex c1, c2, csum, cprod;
-    std::cout << "The default value is: " << c1 << std::endl;
-    std::cout << "Enter first complex number: " << std::endl;
-    std::cin >> c1;
-    std::cout << "Enter second complex number: " << std::endl;
-    std::cin >> c2; 
+    cout << "The default value is: " << c1 << endl;
+    cout << "Enter first complex number: " << endl;
+    cin >> c1;
+    cout << "Enter second complex number: " << endl;
+    cin >> c2; 
     csum = c1 + c2;
     cprod = c1*c2; 
-    std::cout << "The sum is: " << csum << std::endl;
-    std::cout << "The product is: " << cprod << std::endl;
+    cout << "The sum is: " << csum << endl;
+    cout << "The product is: " << cprod << endl;
 }
