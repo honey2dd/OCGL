@@ -157,24 +157,3 @@ int main() //main
  getch();
  return 0;
 }
-*******OUTPUT*****
-Number of Vertices : 4
-
-Cordinates 1st :
-x1= 200
-y1= 200
-
-Cordinates 2st :
-x2= 200
-y2= 400
-
-Cordinates 3st :
-x3= 400
-y3= 200
-
-Cordinates 4st :
-x4= 400
-y4= 400
-
- 
-
